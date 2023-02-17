@@ -1,4 +1,11 @@
 #include <iostream>
+#include "personaje.h"
+#include "arma.h"
+#include "armadura.h"
+#include "BancoDePreguntas.h"
+#include "Examen.h"
+#include "Pregunta.h"
+#include "Examen.h"
 using namespace std;
 using namespace std;
 int main() {
@@ -27,21 +34,34 @@ int main() {
                 cout << "Ingrese el material de la armadura: ";
                 string material;
                 cin >> material;
-                cout << "Ingrese la pieza de la armadura: ";
-                string piezaDeArmadura;
-                cin >> piezaDeArmadura;
-                cout << "Ingrese los puntos de armadura: ";
-                int puntosDeArmadura;
-                cin >> puntosDeArmadura;
-                cout << "Ingrese los puntos de vida: ";
-                int puntosDeVida;
-                cin >> puntosDeVida;
+
+
 
                 return 0;
                 break;
             }
             case 2: {
+                // Se crean algunas preguntas
+                Pregunta p1("¿Cuál es la capital de Francia?");
+                Pregunta p2("¿En qué año fue la Independencia de México?");
+                Pregunta p3("¿Quién escribió el Quijote?");
+                Pregunta p4("¿Cuántas patas tiene una araña?");
+                Pregunta p5("¿Cuál es la fórmula química del agua?");
 
+                // Se agregan las preguntas al banco de preguntas
+                vector<Pregunta> preguntas = {p1, p2, p3, p4, p5};
+                BancoDePreguntas banco(preguntas, preguntas.size());
+
+                // Se crea un examen
+                Examen examen("Historia", 100, 3);
+
+                // Se generan preguntas aleatorias para el examen
+                examen.crear_examen(banco);
+
+                // Se imprime el examen generado
+                examen.imprimir_examen();
+
+                return 0;
                 break;
             }
 

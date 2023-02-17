@@ -43,6 +43,9 @@ public:
     void setPiezaDeArmadura(const string &piezaDeArmadura);
 
 
+    string toString(){
+        return "Material: " + material + " Puntos de armadura: " + to_string(puntosDeArmadura) + " Pieza de armadura: " + piezaDeArmadura;
+    }
 
 
 };

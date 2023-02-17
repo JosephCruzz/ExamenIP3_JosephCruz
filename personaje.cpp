@@ -6,6 +6,6 @@
 
 namespace std {
 } // std
-personaje::personaje(const vector<armadura> &armaduras) : armaduras(armaduras) {
+personaje::personaje(const vector<armadura> &armaduras) {
 
 }
