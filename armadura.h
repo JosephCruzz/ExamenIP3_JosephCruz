@@ -10,25 +10,27 @@
 
 using namespace std;
 
-class armadura {
+#include <iostream>
+#include <string>
+#include <vector>
+#include <random>
 
-    //la clase armadura debe tener un material del cual esta hecho (String), puntos de armadura (int min=1, max =20) y pieza de armadura (casco,pechera,grebas,hombreras)
+using namespace std;
 
-    string material;
-    int puntosDeArmadura{};
-    string piezaDeArmadura;
-    //puntos de armadura de cada pieza se obtienen mediante un medoto random dentro de la clase
-
-
-
-    //metodo random
-
-    int randomPuntosDeArmadura();
-
-
-
+class Armadura{
+private:
 public:
-    armadura(string material, int puntosDeArmadura, string piezaDeArmadura);
+    string material;
+    int puntosdearmadura(){
+        int min = 1, max = 20;
+        random_device rd;
+        mt19937 gen(rd());
+        uniform_int_distribution<> dis(min, max);
+        return dis(gen);
+    }
+    int pieza[4];
+
+
 
     const string &getMaterial() const;
 
@@ -43,9 +45,6 @@ public:
     void setPiezaDeArmadura(const string &piezaDeArmadura);
 
 
-    string toString(){
-        return "Material: " + material + " Puntos de armadura: " + to_string(puntosDeArmadura) + " Pieza de armadura: " + piezaDeArmadura;
-    }
 
 
 };
